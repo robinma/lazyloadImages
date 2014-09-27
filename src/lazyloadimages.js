@@ -128,7 +128,7 @@
         }
         return true;
       }, this);
-      this.lazyLoadTimeout = setTimeout(proxy(this._loadImage, this), isAndroid ? 500 : 0);
+      this.lazyLoadTimeout = setTimeout(proxy(this._loadImage, this), isAndroid ? 200 : 0);
     },
     _loadImage: function() {
       var vimg, realSrc, vimgs;
@@ -204,7 +204,7 @@
       if (me.useFade) {
         img.style[vendor + 'Transition'] = 'opacity 600ms';
         img.style.opacity = 1;
-        listenTransition(img, 600, cb);
+        listenTransition(img, 200, cb);
       } else {
         cb();
       }
