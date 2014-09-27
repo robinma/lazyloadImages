@@ -193,13 +193,14 @@
       }
     },
     _showImage: function(img) {
-      if (img.nodeName.toLowerCase() != 'img'){
-        this._setImgBackground(img,img.getAttribute(this.realSrcAttr));
-      };
       var me = this,
         cb = function() {
-          img.setAttribute(this.completedAttr, '1');
+          img.setAttribute(me.completedAttr, '1');
         };
+      if (img.nodeName.toLowerCase() != 'img') {
+        this._setImgBackground(img, img.getAttribute(this.realSrcAttr));
+        cb();
+      };
       if (me.useFade) {
         img.style[vendor + 'Transition'] = 'opacity 600ms';
         img.style.opacity = 1;
