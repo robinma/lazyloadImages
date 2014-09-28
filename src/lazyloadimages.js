@@ -2,8 +2,15 @@
  *图片延迟加载 for mobile
  */
 (function(root, factory) {
-
-  root.lazyloadimages = factory(root);
+    //set up formFilter appropriately for the enviroment.
+  if (typeof define === 'function' && (define.cmd || define.amd)) {
+    define(function() {
+      return factory(root);
+    });
+  } else {
+    //as a browser global
+    root.lazyloadimages = factory(root);
+  }
 
 })(this, function(root) {
   //is android
